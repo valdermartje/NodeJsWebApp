@@ -8,24 +8,25 @@ export default class App extends React.Component {
   }
 
   componentDidMount = () => {
-    this.fetchApi('http://localhost:3000/'
-      , {
-        method: 'GET',
-        headers: {
-          accept: 'application/json'
-        }
-      }
+    this.fetchApi('http://localhost:3000/api/users',
+      // {
+      //   method: 'GET',
+      //   headers: {
+      //     accept: 'application/json'
+      //   }
+      // }
     );
   }
 
-  fetchApi(url, params) {
-    fetch(url, params)
+  fetchApi(url) {
+    console.log(url);
+    fetch(url)
       .then(response => response.json())
       .then(data => console.log(data))
-      .catch((error) => {
-        console.error('Error: ' + error)
-      })
-    console.warn(params);
+    // .catch((error) => {
+    //   console.error('Error: ' + error)
+    // })
+    // console.warn(params);
   }
 
 
